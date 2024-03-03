@@ -23,7 +23,7 @@ public class InvoiceTest {
         Invoice invoice = new Invoice("testName", 10.5);
         assertEquals(invoice.getClientName(), "testName");
         assertEquals(invoice.getValue(), 10.5);
-        assertEquals(invoice.getValue(), 0.0); // standard initialization value for a double
+        assertEquals(invoice.getTaxes(), 0.0); // standard initialization value for a double
     }
 
     @Test
@@ -59,7 +59,7 @@ public class InvoiceTest {
 
         assertEquals(name, invoice.getClientName());
         assertEquals(0.25, invoice.getTaxes());
-        assertEquals(value, bill.getValue());
+        assertEquals(value, invoice.getValue());
     }
 
     @Test
@@ -76,7 +76,7 @@ public class InvoiceTest {
     }
 
     @Test
-    void equalsDifferentBillsTest() {
+    void equalsDifferentInvoicesTest() {
         String name = "Brenda", address = "Rua da Pagode";
         double value = 10.5;
         Bill bill1 = new Bill(name, address, ServiceType.TRAINING, value);
