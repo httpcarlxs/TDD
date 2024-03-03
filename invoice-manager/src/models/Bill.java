@@ -12,4 +12,18 @@ public class Bill {
         this.serviceType = serviceType;
         this.value = value;
     }
+
+    public String getClientName() {
+        return clientName;
+    }
+
+    public ServiceType getServiceType() {
+        return serviceType;
+    }
+
+    public double getValue() {
+        return value;
+    }
+
+
 }
