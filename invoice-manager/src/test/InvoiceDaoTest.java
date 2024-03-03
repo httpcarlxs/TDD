@@ -31,12 +31,12 @@ class InvoiceDaoTest {
     void failInvalidInvoice() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> InvoiceDao.save(new Invoice("Carlos", 10.5)));
 
-        Invoice invalidInvoice = new Invoice("", 10.5);
-        invalidInvoice.setTaxes(0.5);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> InvoiceDao.save(invalidInvoice));
+        final Invoice invalidNameInvoiceInvoice = new Invoice("", 10.5);
+        invalidNameInvoiceInvoice.setTaxes(0.5);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> InvoiceDao.save(invalidNameInvoiceInvoice));
 
-        invalidInvoice = new Invoice("Carlos", -10.5);
-        invalidInvoice.setTaxes(0.5);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> InvoiceDao.save(invalidInvoice));
+        final Invoice invalidValueInvoice = new Invoice("Carlos", -10.5);
+        invalidValueInvoice.setTaxes(0.5);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> InvoiceDao.save(invalidValueInvoice));
     }
 }

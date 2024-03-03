@@ -30,12 +30,12 @@ public class SMTPTest {
     void failInvalidInvoice() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> SMTP.send(new Invoice("Carlos", 10.5)));
 
-        Invoice invalidInvoice = new Invoice("", 10.5);
-        invalidInvoice.setTaxes(0.5);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> SMTP.send(invalidInvoice));
+        final Invoice invalidNameInvoice = new Invoice("", 10.5);
+        invalidNameInvoice.setTaxes(0.5);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> SMTP.send(invalidNameInvoice));
 
-        invalidInvoice = new Invoice("Carlos", -10.5);
-        invalidInvoice.setTaxes(0.5);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> SMTP.send(invalidInvoice));
+        final Invoice invalidValueInvoice = new Invoice("Carlos", -10.5);
+        invalidValueInvoice.setTaxes(0.5);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> SMTP.send(invalidValueInvoice));
     }
 }

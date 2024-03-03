@@ -30,13 +30,13 @@ class SAPTest {
     void failInvalidInvoice() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> SAP.send(new Invoice("Carlos", 10.5)));
 
-        Invoice invalidInvoice = new Invoice("", 10.5);
-        invalidInvoice.setTaxes(0.5);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> SAP.send(invalidInvoice));
+        final Invoice invalidNameInvoice = new Invoice("", 10.5);
+        invalidNameInvoice.setTaxes(0.5);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> SAP.send(invalidNameInvoice));
 
-        invalidInvoice = new Invoice("Carlos", -10.5);
-        invalidInvoice.setTaxes(0.5);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> SAP.send(invalidInvoice));
+        final Invoice invalidValueInvoice = new Invoice("Carlos", -10.5);
+        invalidValueInvoice.setTaxes(0.5);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> SAP.send(invalidValueInvoice));
     }
 
 
