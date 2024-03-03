@@ -1,9 +1,9 @@
 package util;
 
-import test.InvoiceDaoTest;
+import models.Invoice;
 
 public class SMTP {
-    public void send(Invoice invoice) {
-        System.out.println("enviando por email");
+    public static String send(Invoice invoice) {
+        return "enviando por email";
     }
 }

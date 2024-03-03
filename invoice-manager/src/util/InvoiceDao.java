@@ -1,7 +1,9 @@
 package util;
 
+import models.Invoice;
+
 public class InvoiceDao {
-    public void save(Invoice invoice) {
-        System.out.println("salvando no banco");
+    public static String save(Invoice invoice) {
+        return "salvando no banco";
     }
 }

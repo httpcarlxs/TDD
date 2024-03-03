@@ -1,7 +1,9 @@
 package util;
 
+import models.Invoice;
+
 public class SAP {
-    public void send(Invoice invoice) {
-        System.out.println("enviando pro sap");
+    public static String send(Invoice invoice) {
+        return "enviando pro sap";
     }
 }
