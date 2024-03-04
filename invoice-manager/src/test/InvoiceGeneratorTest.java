@@ -19,7 +19,7 @@ class InvoiceGeneratorTest {
     }
 
     @Test
-    void successfullyGenerateInvoice() {
+    void successfullyGenerateInvoice() throws IllegalAccessException {
         Bill bill = new Bill("Brenda", "Rua do Emprego, 2024", ServiceType.OTHERS, 10.5);
         Invoice generatedInvoice = generator.generateInvoice(bill);
         Invoice testInvoice = new Invoice(bill.getClientName(), bill.getValue());
@@ -30,10 +30,10 @@ class InvoiceGeneratorTest {
 
     @Test
     void failGenerateInvoiceNullBill() {
-        assertThrows(IllegalArgumentException.class, () -> generator.generateInvoice(null));
+        assertThrows(IllegalAccessException.class, () -> generator.generateInvoice(null));
     }
     @Test
-    void successfullyCalculateTaxes() {
+    void successfullyCalculateTaxes() throws IllegalAccessException {
         Bill consultancyBill = new Bill("Brenda", "Rua do Aumento de Salário, 2025", ServiceType.CONSULTANCY, 10.5);
         Bill trainingBill = new Bill("Brenda", "Rua do VR e VA, 2025", ServiceType.TRAINING, 10.5);
         Bill otherBill = new Bill("Brenda", "Rua do Plano de Saúde, 2025", ServiceType.OTHERS, 10.5);
@@ -48,7 +48,7 @@ class InvoiceGeneratorTest {
     }
 
     @Test
-    void sendEmailTest() {
+    void sendEmailTest() throws IllegalAccessException {
         Bill bill = new Bill("Brenda", "Rua do Almoço, 20", ServiceType.OTHERS, 10.5);
         Invoice invoice = generator.generateInvoice(bill);
 
@@ -56,7 +56,7 @@ class InvoiceGeneratorTest {
     }
 
     @Test
-    void sendToSAPTest() {
+    void sendToSAPTest() throws IllegalAccessException {
         Bill bill = new Bill("Brenda", "Rua do Salgadin de Cleide, 350", ServiceType.OTHERS, 10.5);
         Invoice invoice = generator.generateInvoice(bill);
 
@@ -64,7 +64,7 @@ class InvoiceGeneratorTest {
     }
 
     @Test
-    void saveIntoDatabaseTest() {
+    void saveIntoDatabaseTest() throws IllegalAccessException {
         Bill bill = new Bill("Brenda", "Rua do Salgadin de Cleide, 350", ServiceType.OTHERS, 10.5);
         Invoice invoice = generator.generateInvoice(bill);
 
