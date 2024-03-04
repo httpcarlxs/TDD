@@ -33,7 +33,7 @@ public class InvoiceTest {
     }
 
     @Test
-    void successfullyGetAttributesTest() {
+    void successfullyGetAttributesTest() throws IllegalAccessException {
         String name = "Brenda", address = "Rua da Pagode";
         double value = 10.5;
         Bill bill = new Bill(name, address, ServiceType.TRAINING, value);
@@ -45,7 +45,7 @@ public class InvoiceTest {
     }
 
     @Test
-    void successfullySetAttributesTest(){
+    void successfullySetAttributesTest() throws IllegalAccessException {
         String name = "Brenda";
         double value = 10.5;
 
@@ -63,7 +63,7 @@ public class InvoiceTest {
     }
 
     @Test
-    void equalsIdenticInvoicesTest() {
+    void equalsIdenticInvoicesTest() throws IllegalAccessException {
         String name = "Brenda", address = "Rua da Pagode";
         double value = 10.5;
         Bill bill1 = new Bill(name, address, ServiceType.TRAINING, value);
@@ -76,7 +76,7 @@ public class InvoiceTest {
     }
 
     @Test
-    void equalsDifferentInvoicesTest() {
+    void equalsDifferentInvoicesTest() throws IllegalAccessException {
         String name = "Brenda", address = "Rua da Pagode";
         double value = 10.5;
         Bill bill1 = new Bill(name, address, ServiceType.TRAINING, value);
