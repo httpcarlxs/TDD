@@ -23,6 +23,7 @@ class BillTest {
         assertThrows(IllegalArgumentException.class, () -> new Bill("", "Rua da Paz, 100", ServiceType.CONSULTANCY, 10.5));
         assertThrows(IllegalArgumentException.class, () -> new Bill("Brenda", "", ServiceType.TRAINING, 10.5));
         assertThrows(IllegalArgumentException.class, () -> new Bill("Brenda", "Rua da Paz, 100", ServiceType.OTHERS, -10.5));
+        assertThrows(IllegalArgumentException.class, () -> new Bill("Brenda", "Rua da Paz, 100", null, 10.5));
     }
 
     @Test
