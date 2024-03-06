@@ -50,4 +50,8 @@ public class Task {
     public void setPriority(Priority newPriority) {
         this.priority = newPriority;
     }
+
+    public LocalDate getDate() {
+        return null;
+    }
 }

@@ -3,6 +3,7 @@ package src.test;
 import org.junit.Test;
 import src.main.Priority;
 import src.main.Task;
+import src.main.TaskManager;
 
 import static org.junit.Assert.*;
 
@@ -10,7 +11,9 @@ import java.time.LocalDate;
 import java.util.Map;
 import java.util.UUID;
 
-public class TaskManagerTest {]
+public class TaskManagerTest {
+
+    private TaskManager taskManager;
 
     @Test
     public void testCreateTask() {
