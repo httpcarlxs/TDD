@@ -2,6 +2,8 @@ package src.test;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
+import src.main.Priority;
+import src.main.Task;
 
 import java.time.LocalDate;
 
