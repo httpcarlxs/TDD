@@ -26,4 +26,12 @@ public class TaskManager {
     public Task getTask(UUID taskID) {
         return this.tasks.get(taskID);
     }
+
+    public void updateTask(UUID taskID, String title, String description, LocalDate duoDate, Priority priority) {
+        Task task = this.tasks.get(taskID);
+        task.setTitle(title);
+        task.setDescription(description);
+        task.setDuoDate(duoDate);
+        task.setPriority(priority);
+    }
 }

@@ -51,10 +51,6 @@ public class Task {
         this.priority = newPriority;
     }
 
-    public LocalDate getDate() {
-        return null;
-    }
-
     public UUID getId() {
         return  this.id;
     }
