@@ -1,5 +1,6 @@
 package src.main;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -11,15 +12,18 @@ public class TaskManager {
         this.tasks = new HashMap<>();
     }
 
-    public UUID createTask(String task1, String descTask1, String date, Priority priority) {
-        return null;
+    public UUID createTask(String title, String description, LocalDate duoDate, Priority priority) {
+        Task task = new Task(title, description, duoDate, priority);
+        UUID taskID = task.getId();
+        tasks.put(taskID, task);
+        return taskID;
     }
 
     public Map<UUID, Task> getTasks() {
-        return null;
+        return this.tasks;
     }
 
     public Task getTask(UUID taskID) {
-        return null;
+        return this.tasks.get(taskID);
     }
 }

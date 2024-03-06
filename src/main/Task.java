@@ -54,4 +54,12 @@ public class Task {
     public LocalDate getDate() {
         return null;
     }
+
+    public UUID getId() {
+        return  this.id;
+    }
+
+    public LocalDate getDueDate() {
+        return this.dueDate;
+    }
 }
