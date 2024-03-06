@@ -45,5 +45,21 @@ public class TestTask {
         assertEquals(newDescription, task.getDescription());
     }
 
+    @Test
+    public void testSetDuoDate(){
+        LocalDate date = LocalDate.parse("2024-03-05");
+        Task task = new Task("task1", "desc task1", date, Priority.HIGH);
+
+        LocalDate oldDate = task.getDuoDate();
+        String dateString = "1999-03-05";
+        LocalDate newDate = LocalDate.parse(dateString);
+
+        task.setDuoDate(newDate);
+
+        assertNotEquals(oldDate, task.getDuoDate());
+        assertEquals(newDate, task.getDuoDate());
+
+    }
+
 
 }
