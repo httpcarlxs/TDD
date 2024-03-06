@@ -31,4 +31,14 @@ public class TaskManagerTest {
         assertEquals(LocalDate.parse("2024-03-05"), this.taskManager.getTask(taskID).getDueDate());
         assertEquals(Priority.HIGH, this.taskManager.getTask(taskID).getPriority());
     }
+
+    @Test
+    public void testUpdateTask() {
+        UUID taskID = this.taskManager.createTask("task1", "desc task1", LocalDate.parse("2024-03-05"), Priority.HIGH);
+        taskManager.updateTask(taskID, "Task 1 atualizada", "desc task 1 atualziada", "2024-03-06", Priority.HIGH);
+        assertEquals("Task 1 atualizada", taskManager.getTask(taskID).getTitle());
+        assertEquals("desc task 1 atualziada", taskManager.getTask(taskID).getDescription());
+        assertEquals(LocalDate.parse("2024-03-06"), taskManager.getTask(taskID).getDate());
+        assertEquals(Priority.HIGH, taskManager.getTask(taskID).getPriority());
+    }
 }
