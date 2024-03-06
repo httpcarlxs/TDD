@@ -43,7 +43,7 @@ public class Task {
         this.description = newDescription;
     }
 
-    public void setDuoDate(LocalDate newDate) {
-        this.dueDate = newDate;
+    public void setDuoDate(LocalDate newDuoDate) {
+        this.dueDate = newDuoDate;
     }
 }
