@@ -83,6 +83,33 @@ public class TaskManagerTest {
     }
 
     @Test
+    public void testOrderListTasks() {
+
+        UUID taskID1 = taskManager.createTask("task1", "desc task1",  LocalDate.parse("2024-03-07"), Priority.LOW);
+        UUID taskID2 = taskManager.createTask("task2", "desc task2", LocalDate.parse("2024-03-08"), Priority.HIGH);
+        UUID taskID3 = taskManager.createTask("task3", "desc task3", LocalDate.parse("2024-03-06"), Priority.MEDIUM);
+        UUID taskID4 = taskManager.createTask("task1", "desc task1",  LocalDate.parse("2024-03-07"), Priority.LOW);
+        UUID taskID5 = taskManager.createTask("task2", "desc task2", LocalDate.parse("2024-03-08"), Priority.HIGH);
+        UUID taskID6 = taskManager.createTask("task3", "desc task3", LocalDate.parse("2024-03-06"), Priority.MEDIUM);
+
+        List<Task> tasks = taskManager.listTasks();
+        System.out.println(tasks);
+        LocalDate previousDate = LocalDate.MIN;
+        Priority previousPriority = null;
+
+        for (Task task : tasks) {
+            LocalDate currentDate = task.getDueDate();
+            Priority currentPriority = task.getPriority();
+            assertTrue(currentDate.isEqual(previousDate) || currentDate.isAfter(previousDate) ||
+                    (currentDate.equals(previousDate) && currentPriority.compareTo(previousPriority) != 0));
+
+            previousDate = currentDate;
+            previousPriority = currentPriority;
+        }
+
+    }
+
+    @Test
     public void testChangePriority() {
         UUID taskID1 = taskManager.createTask("task1", "desc task1",  LocalDate.parse("2024-03-07"), Priority.LOW);
         taskManager.setTaskPriority(taskID1, Priority.MEDIUM);
