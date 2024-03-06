@@ -34,4 +34,8 @@ public class TaskManager {
         task.setDuoDate(duoDate);
         task.setPriority(priority);
     }
+
+    public void deleteTask(UUID taskID) {
+        this.tasks.remove(taskID);
+    }
 }

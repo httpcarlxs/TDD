@@ -27,9 +27,7 @@ public class Task {
         return this.description;
     }
 
-    public LocalDate getDuoDate() {
-        return this.dueDate;
-    }
+
 
     public Priority getPriority() {
         return this.priority;

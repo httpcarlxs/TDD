@@ -9,6 +9,7 @@ import src.main.Task;
 import src.main.TaskManager;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -38,7 +39,7 @@ public class TaskManagerTest {
         taskManager.updateTask(taskID, "Task 1 atualizada", "desc task 1 atualziada", LocalDate.parse("2024-03-05"), Priority.HIGH);
         assertEquals("Task 1 atualizada", taskManager.getTask(taskID).getTitle());
         assertEquals("desc task 1 atualziada", taskManager.getTask(taskID).getDescription());
-        assertEquals(LocalDate.parse("2024-03-05"), taskManager.getTask(taskID).getDuoDate());
+        assertEquals(LocalDate.parse("2024-03-05"), taskManager.getTask(taskID).getDueDate());
         assertEquals(Priority.HIGH, taskManager.getTask(taskID).getPriority());
     }
 
@@ -55,8 +56,29 @@ public class TaskManagerTest {
 
         assertEquals("task2", tasks.get(taskID2).getTitle());
         assertEquals("desc task2", tasks.get(taskID2).getDescription());
-        assertEquals(LocalDate.parse("2024-03-06"), tasks.get(taskID1).getDuoDate());
+        assertEquals(LocalDate.parse("2024-03-06"), tasks.get(taskID2).getDueDate());
         assertEquals(Priority.HIGH, tasks.get(taskID2).getPriority());
+
+    }
+
+    @Test
+    public void testListTasks() {
+        UUID taskID1 = taskManager.createTask("task1", "desc task1",  LocalDate.parse("2024-03-07"), Priority.LOW);
+        UUID taskID2 = taskManager.createTask("task2", "desc task2", LocalDate.parse("2024-03-08"), Priority.HIGH);
+        UUID taskID3 = taskManager.createTask("task3", "desc task3", LocalDate.parse("2024-03-06"), Priority.MEDIUM);
+
+        List<Task> tasks = taskManager.listTasks();
+        LocalDate previousDate = LocalDate.MIN;
+
+        for (Task task : tasks) {
+            LocalDate currentDate = task.getDueDate();
+            assertTrue(currentDate.isEqual(previousDate) || currentDate.isAfter(previousDate));
+            previousDate = currentDate;
+        }
+
+        assertEquals("task3", tasks.get(0).getTitle());
+        assertEquals("task1", tasks.get(1).getTitle());
+        assertEquals("task2", tasks.get(2).getTitle());
 
     }
 }
