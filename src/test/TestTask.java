@@ -32,4 +32,18 @@ public class TestTask {
         assertEquals(newTitle, task.getTitle());
     }
 
+    @Test
+    public void testSetDescription(){
+        Task task = new Task("task1", "desc task1", LocalDate.parse("2024-03-05"), Priority.HIGH);
+
+        String description = task.getDescription();
+        String newDescription = "desc atualizada";
+
+        task.setDescription(newDescription);
+
+        assertNotEquals(description, task.getDescription());
+        assertEquals(newDescription, task.getDescription());
+    }
+
+
 }
