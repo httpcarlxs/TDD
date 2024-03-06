@@ -41,4 +41,22 @@ public class TaskManagerTest {
         assertEquals(LocalDate.parse("2024-03-05"), taskManager.getTask(taskID).getDuoDate());
         assertEquals(Priority.HIGH, taskManager.getTask(taskID).getPriority());
     }
+
+    @Test
+    public void testDeleteTask() {
+        UUID taskID1 = taskManager.createTask("task1", "desc task1",  LocalDate.parse("2024-03-06"), Priority.LOW);
+        UUID taskID2 = taskManager.createTask("task2", "desc task2", LocalDate.parse("2024-03-06"), Priority.HIGH);
+
+        Map<UUID,Task> tasks = taskManager.getTasks();
+        assertEquals(2, tasks.size());
+
+        taskManager.deleteTask(taskID1);
+        assertEquals(1, tasks.size());
+
+        assertEquals("task2", tasks.get(taskID2).getTitle());
+        assertEquals("desc task2", tasks.get(taskID2).getDescription());
+        assertEquals(LocalDate.parse("2024-03-06"), tasks.get(taskID1).getDuoDate());
+        assertEquals(Priority.HIGH, tasks.get(taskID2).getPriority());
+
+    }
 }
