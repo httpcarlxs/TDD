@@ -61,5 +61,20 @@ public class TestTask {
 
     }
 
+    @Test
+    public void testSetPriority(){
+        Task task = new Task("task1", "desc task1", LocalDate.parse("2024-03-05"), Priority.HIGH);
+
+        Priority oldPriority = task.getPriority();
+        Priority newPriority = Priority.MEDIUM;
+
+        task.setPriority(newPriority);
+
+        assertNotEquals(oldPriority, task.getPriority());
+        assertEquals(newPriority, task.getPriority());
+
+    }
+
+
 
 }
