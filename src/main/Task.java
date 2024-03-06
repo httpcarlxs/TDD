@@ -34,4 +34,8 @@ public class Task {
     public Priority getPriority() {
         return this.priority;
     }
+
+    public void setTitle(String newTitle) {
+        this.title = newTitle;
+    }
 }
