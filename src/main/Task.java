@@ -8,14 +8,14 @@ public class Task {
     private final UUID id;
     private String title;
     private String description;
-    private LocalDate date;
+    private LocalDate dueDate;
     private Priority priority;
 
-    public Task(String title, String description, LocalDate date, Priority priority) {
+    public Task(String title, String description, LocalDate dueDate, Priority priority) {
         this.id = UUID.randomUUID();
         this.title = title;
         this.description = description;
-        this.date = date;
+        this.dueDate = dueDate;
         this.priority = priority;
     }
 
@@ -27,8 +27,8 @@ public class Task {
         return this.description;
     }
 
-    public LocalDate getDate() {
-        return this.date;
+    public LocalDate getDuoDate() {
+        return this.dueDate;
     }
 
     public Priority getPriority() {

@@ -15,7 +15,7 @@ public class TestTask {
 
         assertEquals("task1", task.getTitle());
         assertEquals("desc task1", task.getDescription());
-        assertEquals(LocalDate.parse("2024-03-05"), task.getDate());
+        assertEquals(LocalDate.parse("2024-03-05"), task.getDuoDate());
         assertEquals(Priority.HIGH, task.getPriority());
     }
 
