@@ -46,4 +46,8 @@ public class Task {
     public void setDuoDate(LocalDate newDuoDate) {
         this.dueDate = newDuoDate;
     }
+
+    public void setPriority(Priority newPriority) {
+        this.priority = newPriority;
+    }
 }
