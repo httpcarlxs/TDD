@@ -18,4 +18,18 @@ public class TestTask {
         assertEquals(LocalDate.parse("2024-03-05"), task.getDate());
         assertEquals(Priority.HIGH, task.getPriority());
     }
+
+    @Test
+    public void testSetTitle(){
+        Task task = new Task("task1", "desc task1", LocalDate.parse("2024-03-05"), Priority.HIGH);
+
+        String title = task.getTitle();
+        String newTitle = "task1 atualizada";
+
+        task.setTitle(newTitle);
+
+        assertNotEquals(title, task.getTitle());
+        assertEquals(newTitle, task.getTitle());
+    }
+
 }
