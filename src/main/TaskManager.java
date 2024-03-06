@@ -43,4 +43,10 @@ public class TaskManager {
         tasksList.sort(taskComparator);
         return tasksList;
     }
+
+    public void setTaskPriority(UUID taskID, Priority priority) {
+        Task task = this.tasks.get(taskID);
+        task.setPriority(priority);
+        this.tasks.replace(taskID, task);
+    }
 }
