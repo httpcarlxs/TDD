@@ -42,4 +42,8 @@ public class Task {
     public void setDescription(String newDescription) {
         this.description = newDescription;
     }
+
+    public void setDuoDate(LocalDate newDate) {
+        this.dueDate = newDate;
+    }
 }
