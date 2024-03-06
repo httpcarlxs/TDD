@@ -1,9 +1,7 @@
 package src.main;
 
 import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 public class TaskManager {
     private final Map<UUID, Task> tasks;
@@ -37,5 +35,12 @@ public class TaskManager {
 
     public void deleteTask(UUID taskID) {
         this.tasks.remove(taskID);
+    }
+
+    public List<Task> listTasks() {
+        List<Task> tasksList = new ArrayList<>(this.tasks.values());
+        Comparator<Task> taskComparator = Comparator.comparing(Task::getDueDate).thenComparing(Task::getPriority);
+        tasksList.sort(taskComparator);
+        return tasksList;
     }
 }

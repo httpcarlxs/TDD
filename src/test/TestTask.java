@@ -15,7 +15,7 @@ public class TestTask {
 
         assertEquals("task1", task.getTitle());
         assertEquals("desc task1", task.getDescription());
-        assertEquals(LocalDate.parse("2024-03-05"), task.getDuoDate());
+        assertEquals(LocalDate.parse("2024-03-05"), task.getDueDate());
         assertEquals(Priority.HIGH, task.getPriority());
     }
 
@@ -50,14 +50,14 @@ public class TestTask {
         LocalDate date = LocalDate.parse("2024-03-05");
         Task task = new Task("task1", "desc task1", date, Priority.HIGH);
 
-        LocalDate oldDate = task.getDuoDate();
+        LocalDate oldDate = task.getDueDate();
         String dateString = "1999-03-05";
         LocalDate newDate = LocalDate.parse(dateString);
 
         task.setDuoDate(newDate);
 
-        assertNotEquals(oldDate, task.getDuoDate());
-        assertEquals(newDate, task.getDuoDate());
+        assertNotEquals(oldDate, task.getDueDate());
+        assertEquals(newDate, task.getDueDate());
 
     }
 

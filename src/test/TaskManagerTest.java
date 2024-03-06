@@ -81,4 +81,12 @@ public class TaskManagerTest {
         assertEquals("task2", tasks.get(2).getTitle());
 
     }
+
+    @Test
+    public void testChangePriority() {
+        UUID taskID1 = taskManager.createTask("task1", "desc task1",  LocalDate.parse("2024-03-07"), Priority.LOW);
+        taskManager.setTaskPriority(taskID1, Priority.MEDIUM);
+        Map<UUID,Task> tasks = taskManager.getTasks();
+        assertEquals(Priority.MEDIUM, tasks.get(taskID1).getPriority());
+    }
 }
