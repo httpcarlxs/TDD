@@ -1,9 +1,9 @@
-package src.test;
+package taskManager.src.test;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
-import src.main.Priority;
-import src.main.Task;
+import taskManager.src.main.Priority;
+import taskManager.src.main.Task;
 
 import java.time.LocalDate;
 

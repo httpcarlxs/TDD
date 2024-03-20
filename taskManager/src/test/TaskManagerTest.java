@@ -1,12 +1,12 @@
-package src.test;
+package taskManager.src.test;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-import src.main.Priority;
-import src.main.Task;
-import src.main.TaskManager;
+import taskManager.src.main.Priority;
+import taskManager.src.main.Task;
+import taskManager.src.main.TaskManager;
 
 import java.time.LocalDate;
 import java.util.List;
