@@ -1,4 +1,4 @@
-package taskManager.src.test;
+package taskManager.src.test.tdd;
 
 import static org.junit.Assert.*;
 import org.junit.Test;

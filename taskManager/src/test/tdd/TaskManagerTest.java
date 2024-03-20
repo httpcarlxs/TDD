@@ -1,4 +1,4 @@
-package taskManager.src.test;
+package taskManager.src.test.tdd;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
